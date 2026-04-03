@@ -608,4 +608,94 @@ body {
 /*---------------TOURS END-----------------------*/
 
 
+/*---------------TOP START-----------------------*/
+.top {
+  margin-bottom: 86px;
+}
 
+.top_title {
+  margin-bottom: 54px;
+}
+
+.top_cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 57px;
+}
+
+.top_card {
+  display: flex;
+  flex-direction: column;
+}
+
+.top_card_pic {
+  position: relative;
+  margin-bottom: 45px;
+}
+
+.top_card_stat {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: center;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
+  background: var(--img-overlay);
+  padding: 16px 25px;
+}
+
+.top_card_title {
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 500;
+  color: var(--text-light);
+  margin-right: auto;
+}
+
+.top_card_likes {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 500;
+  background: url(../img/svg/haert_icon.svg) no-repeat right;
+  padding-right: 20px;
+  margin-right: 14px;
+}
+
+.top_card_comments {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 500;
+  padding-right: 23px;
+  background: url(../img/svg/comment_icon.svg) no-repeat right;
+}
+
+.top_card_desc {
+  color: var(--text-primary);
+  margin-bottom: 31px;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.top_card_more {
+  width: 118px;
+  background: var(--link-secondary);
+  color: var(--text-light);
+  text-decoration: none;
+  padding: 12px 19px;
+  font-size: 16px;
+  margin: auto 0 0 0;
+}
+
+.top_card_more:hover,
+.top_card_more:active,
+.top_card_more:focus {
+  background: var(--link-secondary-hover);
+  color: var(--text-secondary);
+  text-decoration: none;
+  padding: 12px 19px;
+  font-size: 16px;
+}
+
+/*---------------TOP END-----------------------*/
