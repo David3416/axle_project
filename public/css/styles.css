@@ -207,7 +207,7 @@ body {
   --text-light: #ffffff;
 
   --border-default: 2px solid #979797;
-  /* --border-default: #979797; */
+
   --img-overlay: rgba(21, 24, 36, .4);
 
   --transition-primary: 0.3s ease;
@@ -249,12 +249,18 @@ body {
 
 /* -------------HEADER STYLES START--------------------- */
 .header {
-  background-color: var(--bg-header);
+  /* background-color: var(--bg-header); */
   position: fixed;
   top: 0px;
+  left: 0px;
   width: 100%;
+  transition:var(--transition-primary);
+  padding: 20px;
+  z-index: 999;
 }
-
+.header_active{
+  background:var(--bg-header);
+}
 .header_wraper {
   display: flex;
   flex-wrap: wrap;
