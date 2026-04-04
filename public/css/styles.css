@@ -704,6 +704,31 @@ body {
   font-size: 16px;
 }
 
+/*---------------VIDEO START-----------------------*/
+.videos {
+  width: 100%;
+}
+
+.videos_wraper {
+  max-width: 1440px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.videos_item {
+  padding-top: 56.9%;
+}
+
+.video_element {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+}
+
+/*---------------VIDEO END-------------------------*/
+
 /*---------------FOOTER STYLES START---------------*/
 .footer {
   background: var(--bg-footer);
