@@ -194,8 +194,8 @@ body {
 :root {
   --bg-primary: #ffffff;
   --bg-secondary: var(--bg-primary);
-  --bg-header: #000000;
-
+  --bg-header: rgba(0, 0, 0, .90);
+  --bg-footer: #000000;
   --link-primary: var(--text-light);
   --link-primary-hover: #cacaca;
 
@@ -704,4 +704,49 @@ body {
   font-size: 16px;
 }
 
-/*---------------TOP END-----------------------*/
+/*---------------FOOTER STYLES START---------------*/
+.footer {
+  background: var(--bg-footer);
+  padding: 119px 0;
+}
+
+.footer_item {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.footer_logo {
+  width: 50%;
+}
+
+.footer_nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 50%;
+}
+
+.footer_menu_title {
+  text-decoration: none;
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 500;
+  color: var(--text-light);
+
+}
+
+.footer_menu_link {
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+  text-decoration: none;
+  color: var(--text-light);
+}
+
+.footer_menu_link:hover,
+footer_menu_link:focus,
+footer_menu_link:active {
+  color: var(--link-primary-hover);
+}
+
+/*---------------FOOTER STYLES END-----------------*/
