@@ -810,23 +810,209 @@ footer_menu_link:active {
 /*---------------FOOTER STYLES END-----------------*/
 
 /*---------------MEDIA START-----------------------*/
-@media screen and (max-width:921px) {
+@media screen and (max-width:925px) {
+
+  .top_cards {
+    grid-gap: 3px;
+  }
+
+  .top_card {
+    margin-bottom: 10px;
+  }
+
+  .top_card_desc {
+    padding: 0 5px;
+  }
+
+  .top_card_pic {
+    margin-bottom: 12px;
+  }
+
+  .benefits {
+    margin-bottom: 15px;
+  }
+
+  .places_caption {
+    padding-left: 10px;
+  }
+
+  .places {
+    margin-bottom: 30px;
+  }
+
+  .tours_tour {
+    grid-gap: 0px;
+    margin-bottom: 30px;
+  }
+
+  .tour_desc {
+    margin-bottom: auto;
+  }
+
+  .tour_title {
+    margin-bottom: auto;
+  }
+
+  .tour_info {
+    height: 100%;
+    /* background-color: #1B7DFF; */
+  }
+
+  .tour_info_padd_conteiner {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* равномерно по высоте */
+    height: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .tour_pic {
+    height: 95%;
+  }
+
+
+
+  /* .benefits {
+    padding-bottom: 0px;
+  } */
+  .places_card_size_lg {
+    grid-column: span 6;
+
+  }
+
+  .places_card_size_sm {
+    grid-column: span 6;
+    height: 354px;
+    overflow: hidden;
+  }
+
+  .places_card_pic_size_sm {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .wraper_full {
+    padding: 0;
+  }
+
+  .intro {
+    height: 100vh;
+    background: url("../img/intro-bg.jpg") no-repeat center;
+    background-size: cover;
+  }
+
+  .main {
+    height: calc(100vh - 310px);
+    overflow: hidden;
+  }
+
+  .intro {
+    height: 100vh;
+    background: url("../img/intro-bg.jpg") no-repeat center;
+    background-size: cover;
+  }
+
   .search_form_field {
     margin-bottom: 25px;
   }
-.benefits_cards{
-  padding: 0 15px;
-  grid-column-gap:35px;
-}
-.benefits_title{
-padding: 25px 15px;
-}
-.benefits_wrap{
-  box-shadow: none;
-}
+
+  .benefits_cards {
+    padding: 0 15px;
+    grid-column-gap: 35px;
+    margin-bottom: 0px;
+  }
+
+  .benefits_title {
+    padding: 25px 15px;
+  }
+
+  .benefits_wrap {
+    box-shadow: none;
+  }
 }
 
-@media screen and (max-width:767px) {
+@media screen and (max-width:768px) {
+
+  .places {
+    margin-bottom: 30px;
+  }
+
+  .tours_tour {
+    grid-gap: 0px;
+    margin-bottom: 30px;
+  }
+
+  .tour_desc {
+    margin-bottom: auto;
+  }
+
+  .tour_title {
+    margin-bottom: auto;
+  }
+
+  .tour_info {
+    height: 100%;
+    /* background-color: #1B7DFF; */
+  }
+
+  .tour_info_padd_conteiner {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* равномерно по высоте */
+    height: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .tour_pic {
+    height: 95%;
+  }
+
+
+  .main {
+    height: calc(100vh - 200px);
+    overflow: hidden;
+  }
+
+  .places_card_size_lg {
+    grid-column: span 6;
+  }
+
+  .places_card_size_sm {
+    grid-column: span 6;
+    height: 354px;
+    overflow: hidden;
+  }
+
+  .places_card_pic_size_sm {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* 💥 ключевая строка */
+  }
+
+  .wraper_full {
+    padding: 0;
+  }
+
+  .intro {
+    height: 100vh;
+    background: url("../img/intro-bg.jpg") no-repeat center;
+    background-size: cover;
+  }
+
+  .benefits {
+    margin-bottom: 40px;
+  }
+
+  .benefits_card {
+    margin-bottom: 0px;
+  }
+
   .header_burger {
     display: block;
     z-index: 2;
@@ -843,9 +1029,10 @@ padding: 25px 15px;
     padding: 75px;
     transform: translateX(100%);
   }
-  .header_nav_active{
+
+  .header_nav_active {
     transform: translateX(0%);
-    transition: 1  linear;
+    transition: 1 linear;
   }
 
   .header_item {
@@ -865,12 +1052,12 @@ padding: 25px 15px;
 
   .header_nav_close {
     width: 40px;
-    height:40px;
+    height: 40px;
     position: absolute;
     top: 20px;
     right: 20px;
     z-index: 11;
-   }
+  }
 
   .header_nav_close_line {
     width: 100%;
@@ -884,6 +1071,7 @@ padding: 25px 15px;
   .header_nav_close_line:first-child {
     transform: translateY(-50%) rotate(45deg);
   }
+
   .header_nav_close_line:last-child {
     transform: translateY(-50%) rotate(-45deg);
   }
@@ -892,4 +1080,4 @@ padding: 25px 15px;
 
 
 
-/*---------------MEDIA END-------------------------*/
+  /*---------------MEDIA END-------------------------*/
