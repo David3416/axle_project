@@ -810,6 +810,22 @@ footer_menu_link:active {
 /*---------------FOOTER STYLES END-----------------*/
 
 /*---------------MEDIA START-----------------------*/
+@media screen and (max-width:921px) {
+  .search_form_field {
+    margin-bottom: 25px;
+  }
+.benefits_cards{
+  padding: 0 15px;
+  grid-column-gap:35px;
+}
+.benefits_title{
+padding: 25px 15px;
+}
+.benefits_wrap{
+  box-shadow: none;
+}
+}
+
 @media screen and (max-width:767px) {
   .header_burger {
     display: block;
