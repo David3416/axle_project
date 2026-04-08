@@ -904,18 +904,6 @@ footer_menu_link:active {
     background-size: cover;
   }
 
-  .main {
-    height: calc(100vh - 310px);
-    overflow: hidden;
-  }
-
-  .intro {
-    height: 100vh;
-    background: url("../img/intro-bg.jpg") no-repeat center;
-    background-size: cover;
-  }
-
-
   .benefits_cards {
     padding: 0 15px;
     grid-column-gap: 35px;
@@ -967,12 +955,6 @@ footer_menu_link:active {
 
   .tour_pic {
     height: 95%;
-  }
-
-
-  .main {
-    height: calc(100vh - 200px);
-    overflow: hidden;
   }
 
   .places_card_size_lg {
@@ -1082,9 +1064,32 @@ footer_menu_link:active {
   }
 
   .intro {
-    height: auto; 
+    height: auto;
     /* padding-top: 120px; */
     /* padding-bottom: 100px; */
+  }
+
+  .benefits_cards {
+    /* grid-template-columns: 1; */
+    display: block;
+    margin-bottom: 40px;
+  }
+
+  .benefits_card_pic {
+    margin-bottom: 10px;
+    width: 100%;
+  }
+
+  .benefits_card_title {
+    margin-bottom: 11px;
+  }
+
+  .benefits_card_descr {
+    margin-bottom: 11px;
+  }
+
+  .benefits_card {
+    margin-bottom: 25px;
   }
 
   /* .search_form_info {
