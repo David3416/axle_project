@@ -15,7 +15,7 @@ const pool = new Pool({
   user: 'postgres',
   host: 'localhost',
   database: 'auth_project',
-  password: 'ТВОЙ_ПАРОЛЬ',
+  password: '1234',
   port: 5432,
 });
 
@@ -50,7 +50,8 @@ app.post('/login', async (req, res) => {
     const user = result.rows[0];
 
     if (!user) {
-      return res.status(400).json({ error: 'Пользователь не найден' });
+      // return res.status(400).json({ error: 'Пользователь не найден' });
+      res.json({ message: 'Вы не зарегестрированы!' });
     }
 
     const isMatch = await bcrypt.compare(password, user.password);
