@@ -183,23 +183,24 @@ html {
 /* ---------------REG STYLE START-------------- */
 
 .reg_section {
-  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  /* background-color: #1B7DFF; */
- 
+  background: url(../img/login-wp/login-wp1.jpeg) no-repeat;
+  background-size: cover;
+
 }
 
 .enter_wraper_conteiner {
   width: 376px;
   height: auto;
   background-color: aqua;
-   border-radius:10px;
-   padding: 15px;
+  border-radius: 10px;
+  padding: 15px;
 }
-.enter_wraper{
+
+.enter_wraper {
   background-color: #1B7DFF;
 }
 
