@@ -1,52 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-   <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Axle</title>
-<link rel="stylesheet" href="/css/reset.css">
-<link rel="stylesheet" href="/css/styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Axle</title>
+  <!-- <link rel="stylesheet" href="/css/reset.css"> -->
+  <link rel="stylesheet" href="/css/styles.css">
 </head>
+
 <body>
-   <div class="item"></div>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do</p>
+  <section class="reg_section">
+    <div class="enter_wraper_conteiner">
+      <div class="enter_wraper">
+      <div class="enter_title">
+        <p>Enter/Register</p>
+      </div>
 
-<form id="loginForm">
-  <input type="email" placeholder="Email" required>
-  <input type="password" placeholder="Password" required>
-  <button type="submit">Login</button>
-</form>
-
-
-<script>
-document.getElementById('loginForm').addEventListener('submit', async (e) => {
-  e.preventDefault();
-
-  const inputs = e.target.querySelectorAll('input');
-
-  const email = inputs[0].value;
-  const password = inputs[1].value;
-
-  const res = await fetch('http://localhost:3000/login', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({ email, password })
-  });
-
-  const data = await res.json();
-  alert(data.message || data.error);
-});
-</script>
+      <form id="loginForm">
+        <input type="email" placeholder="Email" required>
+        <input type="password" placeholder="Password" required>
+        <button type="submit">Login</button>
+      </form>
 
 
+      <script>
+        document.getElementById('loginForm').addEventListener('submit', async (e) => {
+          e.preventDefault();
 
-<section class="features">
- 
-</section>
+          const inputs = e.target.querySelectorAll('input');
+
+          const email = inputs[0].value;
+          const password = inputs[1].value;
+
+          const res = await fetch('http://localhost:3000/login', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ email, password })
+          });
+
+          const data = await res.json();
+          alert(data.message || data.error);
+        });
+      </script>
+
+
+
+      <script>
+        document.getElementById('loginForm').addEventListener('submit', async (e) => {
+          e.preventDefault();
+
+          const inputs = e.target.querySelectorAll('input');
+
+          const email = inputs[0].value;
+          const password = inputs[1].value;
+
+          const res = await fetch('http://localhost:3000/login', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ email, password })
+          });
+
+          const data = await res.json();
+
+          if (res.ok) {
+            alert('Успешный вход');
+
+            // 👉 редирект
+            window.location.href = "/index.html";
+          } else {
+            alert(data.error);
+          }
+        });
+      </script>
+
+
+    </div>
+</div>
+  </section>
 </body>
+
 </html>
-
-
-

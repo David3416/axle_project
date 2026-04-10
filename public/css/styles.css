@@ -180,6 +180,32 @@ html {
   box-sizing: inherit;
 }
 
+/* ---------------REG STYLE START-------------- */
+
+.reg_section {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  /* background-color: #1B7DFF; */
+ 
+}
+
+.enter_wraper_conteiner {
+  width: 376px;
+  height: auto;
+  background-color: aqua;
+   border-radius:10px;
+   padding: 15px;
+}
+.enter_wraper{
+  background-color: #1B7DFF;
+}
+
+
+
+/* ---------------REG STYLE END-------------- */
 body {
   font-family: 'Lato';
   font-style: normal;
@@ -188,6 +214,7 @@ body {
   font-weight: normal;
   color: var(--bg-primary);
 }
+
 
 
 /* --------------ROOT START ------------------------- */
