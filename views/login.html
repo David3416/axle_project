@@ -11,17 +11,47 @@
 
 <body>
   <section class="reg_section">
-    <div class="enter_wraper_conteiner">
-      <div class="enter_wraper">
-      <div class="enter_title">
-        <p>Enter/Register</p>
+
+    <div class="tabs_conteiner_wrapper">
+
+      <div class="login_title">
+        <div class="login_title_img">
+          <a href="index.html" class=""><img src="../img/svg/arr.png" alt="" class=""></a>
+        </div>
+        <h2 class="login_title_header">
+          Вход
+          </h3>
       </div>
 
-      <form id="loginForm">
-        <input type="email" placeholder="Email" required>
-        <input type="password" placeholder="Password" required>
-        <button type="submit">Login</button>
-      </form>
+
+      <div class="tabs_conteiner">
+
+        <div class="tabs ">
+          <div class="tab active  " onclick="openTab(0)">
+            <div class="tab_font_style ">
+              Почта
+            </div>
+          </div>
+          <div class="tab " onclick="openTab(1)">
+            <div class="tab_font_style">
+              Телефон
+            </div>
+          </div>
+        </div>
+
+        <div class="tabs_conteiner" id="loginForm">
+          <div class="content active">
+            <input type="email" placeholder="Email" class="input_class" required>
+          </div>
+          <div class="content active">
+            <input type="password" placeholder="Password" class="input_class" required>
+          </div>
+          <div class=" content ">
+            <input type=" text" placeholder="+7(000)0000000" class="input_class ">
+          </div>
+        </div>
+      </div>
+
 
 
       <script>
@@ -45,43 +75,33 @@
           alert(data.message || data.error);
         });
       </script>
+      <!-- <form id="registerForm">
+  <input type="email" placeholder="Email" required>
+  <input type="password" placeholder="Password" required>
+  <button type="submit">Register</button>
+</form> -->
 
 
 
-      <script>
-        document.getElementById('loginForm').addEventListener('submit', async (e) => {
-          e.preventDefault();
+      <div class="btn_dalee_wrapper" id="first">
+        <button type="submit">Register</button>
+        <!-- <input type="button" class="btn_dalee btn_dalee_wrapper_mar" value="Dalee"> -->
+      </div>
 
-          const inputs = e.target.querySelectorAll('input');
-
-          const email = inputs[0].value;
-          const password = inputs[1].value;
-
-          const res = await fetch('http://localhost:3000/login', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ email, password })
-          });
-
-          const data = await res.json();
-
-          if (res.ok) {
-            alert('Успешный вход');
-
-            // 👉 редирект
-            window.location.href = "/index.html";
-          } else {
-            alert(data.error);
-          }
-        });
-      </script>
+      <div class="btn_dalee_wrapper ">
+        <input type="button" class="btn_dalee" value="По лицу или отпечатку">
+      </div>
+      <div class="btn_dalee_wrapper">
+        <input type="button" class="btn_dalee" value="QR-код">
+      </div>
+      <div class="btn_dalee_wrapper">
+        <input type="button" class="btn_dalee" value="Создать ID">
+      </div>
 
 
-    </div>
-</div>
+
   </section>
+  <script src="../js/main.js"></script>
 </body>
 
 </html>

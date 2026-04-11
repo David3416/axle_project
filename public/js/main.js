@@ -20,34 +20,35 @@
         menu.classList.add('header_nav_active')
 
     });
-     menuCloseItem.addEventListener('click', () => {
+    menuCloseItem.addEventListener('click', () => {
         console.log(1);
         menu.classList.remove('header_nav_active');
 
     });
+}());
 
 
 (function () {
 
     const smoothScroll = function (targetEl, duration) {
-        const headerElHeight =  document.querySelector('.header').clientHeight;
+        const headerElHeight = document.querySelector('.header').clientHeight;
         let target = document.querySelector(targetEl);
         let targetPosition = target.getBoundingClientRect().top - headerElHeight;
         let startPosition = window.pageYOffset;
         let startTime = null;
-    
-        const ease = function(t,b,c,d) {
+
+        const ease = function (t, b, c, d) {
             t /= d / 2;
             if (t < 1) return c / 2 * t * t + b;
             t--;
             return -c / 2 * (t * (t - 2) - 1) + b;
         };
-    
-        const animation = function(currentTime){
+
+        const animation = function (currentTime) {
             if (startTime === null) startTime = currentTime;
             const timeElapsed = currentTime - startTime;
             const run = ease(timeElapsed, startPosition, targetPosition, duration);
-            window.scrollTo(0,run);
+            window.scrollTo(0, run);
             if (timeElapsed < duration) requestAnimationFrame(animation);
         };
         requestAnimationFrame(animation);
@@ -65,3 +66,20 @@
     };
     scrollTo();
 }());
+
+
+function openTab(index) {
+    const tabs = document.querySelectorAll('.login_title_img');
+    
+}
+
+function openTab(index) {
+    const tabs = document.querySelectorAll('.tab');
+    const contents = document.querySelectorAll('.content');
+
+    tabs.forEach(tab => tab.classList.remove('active'));
+    contents.forEach(content => content.classList.remove('active'));
+
+    tabs[index].classList.add('active');
+    contents[index].classList.add('active');
+}
