@@ -38,6 +38,9 @@ app.post('/register', async (req, res) => {
   }
 });
 
+
+
+
 app.post('/login', async (req, res) => {
   const { email, password } = req.body;
 
@@ -50,8 +53,8 @@ app.post('/login', async (req, res) => {
     const user = result.rows[0];
 
     if (!user) {
-      // return res.status(400).json({ error: 'Пользователь не найден' });
-      res.json({ message: 'Вы не зарегестрированы!' });
+      return res.status(400).json({ error: 'Пользователь не найден' });
+      
     }
 
     const isMatch = await bcrypt.compare(password, user.password);

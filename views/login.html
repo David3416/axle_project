@@ -39,7 +39,9 @@
           </div>
         </div>
 
-        <div class="tabs_conteiner" id="loginForm">
+        <div id="formMessage" class="form-message"></div>
+
+        <form class="tabs_conteiner" id="loginForm" action="#" method="POST">
           <div class="content active">
             <input type="email" placeholder="Email" class="input_class" required>
           </div>
@@ -49,7 +51,10 @@
           <div class=" content ">
             <input type=" text" placeholder="+7(000)0000000" class="input_class ">
           </div>
-        </div>
+
+          <div class="btn_dalee_wrapper" id="first">
+            <button type="submit" class="btn_dalee btn_dalee_wrapper_mar">login</button>
+          </div>
       </div>
 
 
@@ -75,29 +80,13 @@
           alert(data.message || data.error);
         });
       </script>
-      <!-- <form id="registerForm">
-  <input type="email" placeholder="Email" required>
-  <input type="password" placeholder="Password" required>
-  <button type="submit">Register</button>
-</form> -->
 
 
 
-      <div class="btn_dalee_wrapper" id="first">
-        <button type="submit">Register</button>
-        <!-- <input type="button" class="btn_dalee btn_dalee_wrapper_mar" value="Dalee"> -->
-      </div>
 
       <div class="btn_dalee_wrapper ">
         <input type="button" class="btn_dalee" value="По лицу или отпечатку">
       </div>
-      <div class="btn_dalee_wrapper">
-        <input type="button" class="btn_dalee" value="QR-код">
-      </div>
-      <div class="btn_dalee_wrapper">
-        <input type="button" class="btn_dalee" value="Создать ID">
-      </div>
-
 
 
   </section>
