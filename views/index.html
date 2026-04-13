@@ -49,8 +49,10 @@
     </div>
   </header>
   <!---------------HEADER END----------------------->
-
-
+  <script>
+    ocalStorage.setItem('redirectAfterLogin', window.location.pathname);
+    window.location.href = '/login';
+  </script>
   <main class="main">
     <!---------------INTRO START----------------------->
     <section class="intro">

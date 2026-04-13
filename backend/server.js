@@ -54,7 +54,6 @@ app.post('/login', async (req, res) => {
 
     if (!user) {
       return res.status(400).json({ error: 'Пользователь не найден' });
-      
     }
 
     const isMatch = await bcrypt.compare(password, user.password);
@@ -62,8 +61,18 @@ app.post('/login', async (req, res) => {
     if (!isMatch) {
       return res.status(400).json({ error: 'Неверный пароль' });
     }
-
     res.json({ message: 'Успешный вход' });
+
+    const token = jwt.sign(
+      { userId: user.id }, // В PostgreSQL обычно id
+      'SECRET_KEY',
+      { expiresIn: '1h' }
+    );
+
+    // ✅ отправляем токен
+    res.json({ token });
+
+
   } catch (err) {
     res.status(500).json({ error: 'Ошибка входа' });
   }
