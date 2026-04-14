@@ -40,7 +40,6 @@ app.post('/register', async (req, res) => {
 
 
 
-
 app.post('/login', async (req, res) => {
   const { email, password } = req.body;
 
@@ -61,20 +60,21 @@ app.post('/login', async (req, res) => {
     if (!isMatch) {
       return res.status(400).json({ error: 'Неверный пароль' });
     }
-    res.json({ message: 'Успешный вход' });
+
+    const jwt = require('jsonwebtoken');
 
     const token = jwt.sign(
-      { userId: user.id }, // В PostgreSQL обычно id
+      { userId: user.id },
       'SECRET_KEY',
       { expiresIn: '1h' }
     );
 
-    // ✅ отправляем токен
-    res.json({ token });
-
+    // ✅ ОДИН ответ
+    return res.json({ token });
 
   } catch (err) {
-    res.status(500).json({ error: 'Ошибка входа' });
+    console.error(err);
+    return res.status(500).json({ error: 'Ошибка входа' });
   }
 });
 

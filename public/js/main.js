@@ -15,18 +15,17 @@
     const burgerItem = document.querySelector('.burger');
     const menu = document.querySelector('.header_nav');
     const menuCloseItem = document.querySelector('.header_nav_close');
-    burgerItem.addEventListener('click', () => {
-        console.log(1);
-        menu.classList.add('header_nav_active')
 
-    });
-    menuCloseItem.addEventListener('click', () => {
-        console.log(1);
-        menu.classList.remove('header_nav_active');
+    if (burgerItem && menu && menuCloseItem) {
+        burgerItem.addEventListener('click', () => {
+            menu.classList.add('header_nav_active');
+        });
 
-    });
-}());
-
+        menuCloseItem.addEventListener('click', () => {
+            menu.classList.remove('header_nav_active');
+        });
+    }
+})();
 
 (function () {
 
@@ -80,15 +79,29 @@ function openTab(index) {
 }
 
 
+
+
+
+
+
+
+
 function showUserUI() {
-    document.querySelector('#loginLink').style.display = 'none';
-    document.querySelector('#userMenu').style.display = 'block';
+    const loginLink = document.querySelector('#loginLink');
+    const userMenu = document.querySelector('#userMenu');
+
+    if (loginLink) loginLink.style.display = 'none';
+    if (userMenu) userMenu.style.display = 'block';
 }
 
 function showGuestUI() {
-    document.querySelector('#loginLink').style.display = 'block';
-    document.querySelector('#userMenu').style.display = 'none';
+    const loginLink = document.querySelector('#loginLink');
+    const userMenu = document.querySelector('#userMenu');
+
+    if (loginLink) loginLink.style.display = 'block';
+    if (userMenu) userMenu.style.display = 'none';
 }
+
 document.addEventListener('DOMContentLoaded', () => {
     const token = localStorage.getItem('token');
 
@@ -97,20 +110,24 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
         showGuestUI();
     }
+
+    const userName = document.getElementById('userName');
+
+    if (userName) {
+        userName.addEventListener('click', () => {
+            const dropdown = document.getElementById('dropdown');
+
+            dropdown.style.display =
+                dropdown.style.display === 'none' ? 'block' : 'none';
+        });
+    }
+
+    const logoutBtn = document.getElementById('logoutBtn');
+
+    if (logoutBtn) {
+        logoutBtn.addEventListener('click', () => {
+            localStorage.removeItem('token');
+            window.location.href = '/';
+        });
+    }
 });
-
-document.getElementById('userName').addEventListener('click', () => {
-    const dropdown = document.getElementById('dropdown');
-
-    dropdown.style.display =
-        dropdown.style.display === 'none' ? 'block' : 'none';
-});
-
-const logoutBtn = document.getElementById('logoutBtn');
-
-if (logoutBtn) {
-  logoutBtn.addEventListener('click', () => {
-    localStorage.removeItem('token');
-    window.location.href = '/';
-  });
-}
