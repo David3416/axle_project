@@ -69,11 +69,6 @@
 
 
 function openTab(index) {
-    const tabs = document.querySelectorAll('.login_title_img');
-    
-}
-
-function openTab(index) {
     const tabs = document.querySelectorAll('.tab');
     const contents = document.querySelectorAll('.content');
 
@@ -82,4 +77,40 @@ function openTab(index) {
 
     tabs[index].classList.add('active');
     contents[index].classList.add('active');
+}
+
+
+function showUserUI() {
+    document.querySelector('#loginLink').style.display = 'none';
+    document.querySelector('#userMenu').style.display = 'block';
+}
+
+function showGuestUI() {
+    document.querySelector('#loginLink').style.display = 'block';
+    document.querySelector('#userMenu').style.display = 'none';
+}
+document.addEventListener('DOMContentLoaded', () => {
+    const token = localStorage.getItem('token');
+
+    if (token) {
+        showUserUI();
+    } else {
+        showGuestUI();
+    }
+});
+
+document.getElementById('userName').addEventListener('click', () => {
+    const dropdown = document.getElementById('dropdown');
+
+    dropdown.style.display =
+        dropdown.style.display === 'none' ? 'block' : 'none';
+});
+
+const logoutBtn = document.getElementById('logoutBtn');
+
+if (logoutBtn) {
+  logoutBtn.addEventListener('click', () => {
+    localStorage.removeItem('token');
+    window.location.href = '/';
+  });
 }
