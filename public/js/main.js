@@ -15,18 +15,17 @@
     const burgerItem = document.querySelector('.burger');
     const menu = document.querySelector('.header_nav');
     const menuCloseItem = document.querySelector('.header_nav_close');
-    burgerItem.addEventListener('click', () => {
-        console.log(1);
-        menu.classList.add('header_nav_active')
 
-    });
-    menuCloseItem.addEventListener('click', () => {
-        console.log(1);
-        menu.classList.remove('header_nav_active');
+    if (burgerItem && menu && menuCloseItem) {
+        burgerItem.addEventListener('click', () => {
+            menu.classList.add('header_nav_active');
+        });
 
-    });
-}());
-
+        menuCloseItem.addEventListener('click', () => {
+            menu.classList.remove('header_nav_active');
+        });
+    }
+})();
 
 (function () {
 
@@ -69,11 +68,6 @@
 
 
 function openTab(index) {
-    const tabs = document.querySelectorAll('.login_title_img');
-    
-}
-
-function openTab(index) {
     const tabs = document.querySelectorAll('.tab');
     const contents = document.querySelectorAll('.content');
 
@@ -83,3 +77,57 @@ function openTab(index) {
     tabs[index].classList.add('active');
     contents[index].classList.add('active');
 }
+
+
+
+
+
+
+
+
+
+function showUserUI() {
+    const loginLink = document.querySelector('#loginLink');
+    const userMenu = document.querySelector('#userMenu');
+
+    if (loginLink) loginLink.style.display = 'none';
+    if (userMenu) userMenu.style.display = 'block';
+}
+
+function showGuestUI() {
+    const loginLink = document.querySelector('#loginLink');
+    const userMenu = document.querySelector('#userMenu');
+
+    if (loginLink) loginLink.style.display = 'block';
+    if (userMenu) userMenu.style.display = 'none';
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    const token = localStorage.getItem('token');
+
+    if (token) {
+        showUserUI();
+    } else {
+        showGuestUI();
+    }
+
+    const userName = document.getElementById('userName');
+
+    if (userName) {
+        userName.addEventListener('click', () => {
+            const dropdown = document.getElementById('dropdown');
+
+            dropdown.style.display =
+                dropdown.style.display === 'none' ? 'block' : 'none';
+        });
+    }
+
+    const logoutBtn = document.getElementById('logoutBtn');
+
+    if (logoutBtn) {
+        logoutBtn.addEventListener('click', () => {
+            localStorage.removeItem('token');
+            window.location.href = '/';
+        });
+    }
+});

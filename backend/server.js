@@ -38,6 +38,8 @@ app.post('/register', async (req, res) => {
   }
 });
 
+
+
 app.post('/login', async (req, res) => {
   const { email, password } = req.body;
 
@@ -50,8 +52,7 @@ app.post('/login', async (req, res) => {
     const user = result.rows[0];
 
     if (!user) {
-      // return res.status(400).json({ error: 'Пользователь не найден' });
-      res.json({ message: 'Вы не зарегестрированы!' });
+      return res.status(400).json({ error: 'Пользователь не найден' });
     }
 
     const isMatch = await bcrypt.compare(password, user.password);
@@ -60,9 +61,20 @@ app.post('/login', async (req, res) => {
       return res.status(400).json({ error: 'Неверный пароль' });
     }
 
-    res.json({ message: 'Успешный вход' });
+    const jwt = require('jsonwebtoken');
+
+    const token = jwt.sign(
+      { userId: user.id },
+      'SECRET_KEY',
+      { expiresIn: '1h' }
+    );
+
+    // ✅ ОДИН ответ
+    return res.json({ token });
+
   } catch (err) {
-    res.status(500).json({ error: 'Ошибка входа' });
+    console.error(err);
+    return res.status(500).json({ error: 'Ошибка входа' });
   }
 });
 

@@ -32,8 +32,15 @@
             </li>
             <li class="header_item">
               <!-- <a href="register.html" class="header_link">xfcvsxv</a> -->
-              <a href="login.html" class="header_link">Registration/Autorisation</a>
+              <a href="login.html" class="header_link" id="loginLink">Login</a>
             </li>
+
+            <div id="userMenu" style="display: none;">
+              <span id="userName">User 👤</span>
+              <div id="dropdown" style="display: none;">
+                <button id="logoutBtn">Logout</button>
+              </div>
+            </div>
           </ul>
           <div class="header_nav_close">
             <span class="header_nav_close_line"></span>
@@ -49,6 +56,14 @@
     </div>
   </header>
   <!---------------HEADER END----------------------->
+
+  <!-- 
+  <script>
+        localStorage.setItem('redirectAfterLogin', window.location.pathname);
+    window.location.href = '/login';
+  </script> -->
+
+
 
 
   <main class="main">
