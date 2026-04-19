@@ -10,38 +10,40 @@
 </head>
 
 <body>
-  
-      <p style="background-color: rgb(255, 62, 14);">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do</p>
 
-      <form id="registerForm" action="#" method="POST">
-        <input type="email" placeholder="Email" required>
-        <input type="password" placeholder="Password" required>
-        <button type="submit">Register</button>
-      </form>
+  <p style="background-color: rgb(255, 62, 14);">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do</p>
 
-      
-      <script>
-        document.getElementById('registerForm').addEventListener('submit', async (e) => {
-          e.preventDefault();
+  <form id="registerForm" action="#" method="POST">
+    <input type="email" placeholder="Email" required>
+    <input type="password" placeholder="Password" required>
+    <input type="text" placeholder="name" required>
+    <button type="submit">Register</button>
+  </form>
 
-          const inputs = e.target.querySelectorAll('input');
 
-          const email = inputs[0].value;
-          const password = inputs[1].value;
+  <script>
+    document.getElementById('registerForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
 
-          const res = await fetch('http://localhost:3000/register', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ email, password })
-          });
+      const inputs = e.target.querySelectorAll('input');
 
-          const data = await res.json();
-          alert(data.message || data.error);
-          window.location.href = "/index.html";
-        });
-      </script>
+      const email = inputs[0].value;
+      const password = inputs[1].value;
+      const name = inputs[2].value;
+
+      const res = await fetch('http://localhost:3000/register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ email, password, name })
+      });
+
+      const data = await res.json();
+      alert(data.message || data.error);
+      window.location.href = "/index.html";
+    });
+  </script>
 
 
 

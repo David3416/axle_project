@@ -74,21 +74,22 @@
           const inputs = e.target.querySelectorAll('input');
           const email = inputs[0].value;
           const password = inputs[1].value;
+          const name = inputs[2].value;
 
           const res = await fetch('http://localhost:3000/login', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ email, password })
+            body: JSON.stringify({ email, password, name })
           });
 
-          const data = await res.json();
+          const data = await res.json(); // ← ВАЖНО
           const messageBox = document.getElementById('formMessage');
 
           if (res.ok) {
             localStorage.setItem('token', data.token);
-
+            localStorage.setItem('name', data.name);
             messageBox.style.color = 'green';
             messageBox.textContent = 'Успешный вход';
 
@@ -106,12 +107,11 @@
 
 
 
-
       HEAD <div class="btn_dalee_wrapper">
         <input type="button" class="btn_dalee" value="Создать ID">
-    </div>
+      </div>
 
-   
+
 
 
   </section>

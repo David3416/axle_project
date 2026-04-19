@@ -1,3 +1,4 @@
+// console.log('SERVER FILE LOADED');
 const express = require('express');
 const { Pool } = require('pg');
 const bcrypt = require('bcrypt');
@@ -20,17 +21,23 @@ const pool = new Pool({
 });
 
 app.post('/register', async (req, res) => {
-  const { email, password } = req.body;
+  const { email, password, name } = req.body;
 
   try {
     const hashedPassword = await bcrypt.hash(password, 10);
 
+    console.log('DATA:', email, hashedPassword, name);
+
     await pool.query(
-      'INSERT INTO users (email, password) VALUES ($1, $2)',
-      [email, hashedPassword]
+      'INSERT INTO users (email, password, name) VALUES ($1, $2, $3)',
+      [email, hashedPassword, name]
     );
 
+    console.log('QUERY RUN');
+
     res.json({ message: 'Пользователь создан' });
+
+ 
 
   } catch (err) {
     console.error('ОШИБКА РЕГИСТРАЦИИ:', err); // ← ВАЖНО
@@ -41,7 +48,7 @@ app.post('/register', async (req, res) => {
 
 
 app.post('/login', async (req, res) => {
-  const { email, password } = req.body;
+  const { email, password, name } = req.body;
 
   try {
     const result = await pool.query(
@@ -68,10 +75,11 @@ app.post('/login', async (req, res) => {
       'SECRET_KEY',
       { expiresIn: '1h' }
     );
-
-    // ✅ ОДИН ответ
-    return res.json({ token });
-
+   return res.json({
+      token,
+      name: user.name
+    });
+   
   } catch (err) {
     console.error(err);
     return res.status(500).json({ error: 'Ошибка входа' });

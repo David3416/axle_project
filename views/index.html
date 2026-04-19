@@ -57,17 +57,19 @@
   </header>
   <!---------------HEADER END----------------------->
 
-  <!-- 
+
   <script>
-        localStorage.setItem('redirectAfterLogin', window.location.pathname);
-    window.location.href = '/login';
-  </script> -->
+    const name = localStorage.getItem('name');
 
+    if (name) {
+      document.getElementById("userName").textContent = name;
+    }
 
+  </script>
 
 
   <main class="main">
-    <!---------------INTRO START----------------------->
+    <!---------------INTRO START---------------git-------->
     <section class="intro">
       <div class="wraper">
         <h1 class="intro_title">
