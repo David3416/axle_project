@@ -5,11 +5,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Axle</title>
-  <!-- <link rel="stylesheet" href="/css/reset.css"> -->
-  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="../css/styles.css">
 </head>
 
 <body>
+  <div id="header"></div>
+
   <section class="reg_section">
 
     <div class="tabs_conteiner_wrapper">
@@ -48,66 +49,24 @@
           <div class="content active">
             <input type="password" placeholder="Password" class="input_class" required>
           </div>
-          <div class=" content ">
+          <!-- <div class=" content ">
             <input type=" text" placeholder="+7(000)0000000" class="input_class ">
-          </div>
+          </div> -->
 
 
           <div class="btn_dalee_wrapper" id="first">
             <button type="submit" class="btn_dalee btn_dalee_wrapper_mar">login</button>
           </div>
-
+        </form>
       </div>
 
 
 
-      <script>
-        const token = localStorage.getItem('token');
-
-        if (token) {
-          window.location.href = '/';
-        }
-
-        document.getElementById('loginForm').addEventListener('submit', async (e) => {
-          e.preventDefault();
-
-          const inputs = e.target.querySelectorAll('input');
-          const email = inputs[0].value;
-          const password = inputs[1].value;
-          const name = inputs[2].value;
-
-          const res = await fetch('http://localhost:3000/login', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ email, password, name })
-          });
-
-          const data = await res.json(); // ← ВАЖНО
-          const messageBox = document.getElementById('formMessage');
-
-          if (res.ok) {
-            localStorage.setItem('token', data.token);
-            localStorage.setItem('name', data.name);
-            messageBox.style.color = 'green';
-            messageBox.textContent = 'Успешный вход';
-
-            const redirect = localStorage.getItem('redirectAfterLogin') || '/';
-            localStorage.removeItem('redirectAfterLogin');
-
-            window.location.href = redirect;
-
-          } else {
-            messageBox.style.color = 'red';
-            messageBox.textContent = data.error || 'Ошибка';
-          }
-        });
-      </script>
 
 
 
-      HEAD <div class="btn_dalee_wrapper">
+
+      <div class="btn_dalee_wrapper">
         <input type="button" class="btn_dalee" value="Создать ID">
       </div>
 
@@ -115,7 +74,66 @@
 
 
   </section>
+  <div id="footer"></div>
   <script src="../js/main.js"></script>
+  <script>
+    fetch('../header.html')
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById('header').innerHTML = data;
+      });
+  </script>
+  <script>
+    fetch('../footer.html')
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById('footer').innerHTML = data;
+      });
+  </script>
+  <script>
+    document.getElementById('loginForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const token = localStorage.getItem('token');
+
+      if (token) {
+        window.location.href = '/';
+      }
+
+console.log(document.getElementById('loginForm'));
+
+      const inputs = e.target.querySelectorAll('input');
+      const email = inputs[0].value;
+      const password = inputs[1].value;
+      // const name = inputs[2].value;
+
+      const res = await fetch('http://localhost:3000/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ email, password })
+      });
+
+      const data = await res.json(); // ← ВАЖНО
+      const messageBox = document.getElementById('formMessage');
+
+      if (res.ok) {
+        localStorage.setItem('token', data.token);
+        localStorage.setItem('name', data.name);
+        messageBox.style.color = 'green';
+        messageBox.textContent = 'Успешный вход';
+
+        const redirect = localStorage.getItem('redirectAfterLogin') || '/';
+        localStorage.removeItem('redirectAfterLogin');
+
+        window.location.href = redirect;
+
+      } else {
+        messageBox.style.color = 'red';
+        messageBox.textContent = data.error || 'Ошибка';
+      }
+    });
+  </script>
 </body>
 
 </html>

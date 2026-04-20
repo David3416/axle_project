@@ -37,7 +37,7 @@ app.post('/register', async (req, res) => {
 
     res.json({ message: 'Пользователь создан' });
 
- 
+
 
   } catch (err) {
     console.error('ОШИБКА РЕГИСТРАЦИИ:', err); // ← ВАЖНО
@@ -48,7 +48,7 @@ app.post('/register', async (req, res) => {
 
 
 app.post('/login', async (req, res) => {
-  const { email, password, name } = req.body;
+  const { email, password } = req.body;
 
   try {
     const result = await pool.query(
@@ -75,11 +75,11 @@ app.post('/login', async (req, res) => {
       'SECRET_KEY',
       { expiresIn: '1h' }
     );
-   return res.json({
+    return res.json({
       token,
       name: user.name
     });
-   
+
   } catch (err) {
     console.error(err);
     return res.status(500).json({ error: 'Ошибка входа' });

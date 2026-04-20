@@ -104,6 +104,9 @@ section {
 
 body {
   line-height: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 img {
@@ -192,7 +195,10 @@ body {
   line-height: 1.2;
   font-weight: normal;
   color: var(--bg-primary);
+  /* margin-top: 100px; */
 }
+
+
 
 
 
@@ -220,7 +226,10 @@ body {
 }
 
 /* --------------ROOT END------------------------- */
-
+.main {
+  /* margin-top: 231px; */
+  flex: 1;
+}
 
 .wraper {
   max-width: 1060px;
@@ -231,7 +240,7 @@ body {
 .wraper_full {
   max-width: 1262px;
   margin: 0 auto;
-  padding: 15px;
+  padding: 0px;
 }
 
 .section_title {
@@ -257,14 +266,15 @@ body {
 
 /* -------------HEADER STYLES START--------------------- */
 .header {
-  /* background-color: var(--bg-header); */
-  position: fixed;
+  background-color: #000;
+  /* position: fixed; */
   top: 0px;
   left: 0px;
   width: 100%;
   transition: var(--transition-primary);
   padding: 20px;
   z-index: 999;
+  /* margin-bottom: 250px; */
 }
 
 .header_active {
@@ -339,88 +349,14 @@ body {
 
 
 
-/* -------------INTRO STYLES START--------------------- */
-.intro {
-  height: 100vh;
-  background: url("../img/intro-bg.jpg") no-repeat center;
-  background-size: cover;
-  padding-top: 263px;
-  padding-bottom: 223px;
-
-}
-
-.intro_title {
-  max-width: 619px;
-  font-weight: 500;
-  font-size: 50px;
-  line-height: 60px;
-  color: var(--text-light);
-  margin-bottom: 22px;
-}
-
-.intro_subtitle {
-  color: var(--text-light);
-  font-size: 16px;
-  line-height: 24px;
-  margin-bottom: 59px;
-  max-width: 546px;
-}
-
-.search_form_info {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.search_form_field {
-  margin-bottom: 25px;
-  width: 297px;
-  background: url(../img/svg/circle_icon1.png) no-repeat left 6px;
-  background-size: 20px;
-  border: 0;
-  border-bottom: 2px solid #BFC0C5;
-  margin-right: 60px;
-  padding-left: 43px;
-  padding-bottom: 22px;
-  font-weight: 500;
-  font-size: 18px;
-  color: var(--bg-primary);
-}
-
-.search_form_field::placeholder {
-  color: var(--bg-primary);
-  font-size: 18px;
-  font-weight: 500;
-}
-
-.search_form_submit {
-  padding: 15px 39px;
-  text-transform: uppercase;
-  font-weight: 500;
-  font-size: 24px;
-  color: white;
-  background: #1B7DFF;
-  border: 0;
-}
-
-.search_form_submit:hover,
-.search_form_submit:focus,
-.search_form_submit:active {
-  background-color: var(--link-secondary-hover);
-}
-
-/* -------------INTRO STYLES END--------------------- */
-
-
-
 /* -------------BENEFITS STYLES START--------------------- */
 .benefits {
-  margin-bottom: 131px;
+  margin-bottom: 40px;
 }
 
 .benefits_wrap {
   max-width: 1262px;
   width: 100%;
-
   background-color: var(--bg-primary);
   margin: 0 auto;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -432,13 +368,13 @@ body {
   font-size: 35px;
   font-weight: 500;
   line-height: 42px;
-  padding: 93px 100px 88px 100px;
+  padding: 40px 100px 40px 100px;
   position: absolute;
   top: 0px;
   left: 0px;
   color: var(--text-primary);
   background-color: var(--bg-secondary);
-  transform: translateY(-100%);
+  /* transform: translateY(-100%); */
 }
 
 .benefits_cards {
@@ -451,12 +387,12 @@ body {
 
 .benefits_card {
   grid-column: span 1;
-  margin-bottom: 112px;
+  margin-bottom: 40px;
 }
 
 .benefits_card_pic {
   max-width: 66px;
-  margin-bottom: 37px;
+  margin-top: 120px;
 }
 
 .benefits_card_title {
@@ -1065,8 +1001,12 @@ footer_menu_link:active {
 @media screen and (max-width: 375px) {
 
   .main {
-    /* height: auto; */
+    
+    /* height: 200px; */
+    width: 100%;
     overflow: visible;
+    display: flex;
+    background-color: blueviolet;
   }
 
   .intro {
@@ -1156,11 +1096,13 @@ footer_menu_link:active {
 
 .login_title_header {
   color: #000;
-  position: absolute;
+  /* position: absolute; */
   left: 50%;
   transform: translateX(-50%);
   margin: 0;
   font-size: 25px;
+  height: 50px;
+
 }
 
 .form-message {
@@ -1221,7 +1163,7 @@ footer_menu_link:active {
 
 .input_class:focus {
   outline: none;
-  
+
 }
 
 .content {
@@ -1232,7 +1174,7 @@ footer_menu_link:active {
   color: #000;
   border: 1px solid #000;
   border-radius: 25px;
-  
+
 }
 
 .content.active {

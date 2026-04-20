@@ -11,90 +11,29 @@
 
 <body>
   <!---------------HEADER START----------------------->
-  <header class="header">
-    <div class="wraper">
-      <div class="header_wraper">
-        <div class="header_logo">
-          <a href="/" class="header_logo-link">
-            <img src="../img/svg/odigo-Logo.svg" alt="Discover Amazing places in Japan" class="header_logo-pic">
-          </a>
-        </div>
-        <nav class="header_nav">
-          <ul class="header_list">
-            <li class="header_item">
-              <a href="#articles" class="header_link js-scroll">Articles</a>
-            </li>
-            <li class="header_item">
-              <a href="#" class="header_link">Locations</a>
-            </li>
-            <li class="header_item">
-              <a href="#" class="header_link">Videos</a>
-            </li>
-            <li class="header_item">
-              <!-- <a href="register.html" class="header_link">xfcvsxv</a> -->
-              <a href="login.html" class="header_link" id="loginLink">Login</a>
-            </li>
+  <div id="header"></div>
 
-            <div id="userMenu" style="display: none;">
-              <span id="userName">User 👤</span>
-              <div id="dropdown" style="display: none;">
-                <button id="logoutBtn">Logout</button>
-              </div>
-            </div>
-          </ul>
-          <div class="header_nav_close">
-            <span class="header_nav_close_line"></span>
-            <span class="header_nav_close_line"></span>
-          </div>
-        </nav>
-        <div class="header_burger burger">
-          <span class="burger_line burger_line_first"></span>
-          <span class="burger_line burger_line_second"></span>
-          <span class="burger_line burger_line_third"></span>
-        </div>
-      </div>
-    </div>
-  </header>
   <!---------------HEADER END----------------------->
 
-
   <script>
-    const name = localStorage.getItem('name');
+    fetch('../header.html')
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById('header').innerHTML = data;
 
-    if (name) {
-      document.getElementById("userName").textContent = name;
-    }
+        // 👉 ВОТ ТУТ уже можно работать с header
+        const name = localStorage.getItem('name');
 
+        if (name) {
+          const userNameEl = document.getElementById("userName");
+          if (userNameEl) {
+            userNameEl.textContent = name;
+          }
+        }
+      });
   </script>
 
-
   <main class="main">
-    <!---------------INTRO START---------------git-------->
-    <section class="intro">
-      <div class="wraper">
-        <h1 class="intro_title">
-          Discover Amazing places in Japan
-        </h1>
-        <p class="intro_subtitle">
-          Jump off balcony, onto stranger's head. Chase ball of string hide when guests come over. Being gorgeous with
-          belly side up i could pee on this if i had the energy but under the bed, for attack the child, open the door,
-        </p>
-        <form class="search_form">
-          <fieldset class="search_form_wrap">
-            <p class="search_form_info">
-              <input type="text" name="user_like_to_do" class="search_form_field"
-                placeholder="What would you like to do?">
-              <input type="text" name="user_like_to_go" class="search_form_field"
-                placeholder="Where would you like to go?">
-              <button type="submit" class="search_form_submit">search</button>
-            </p>
-          </fieldset>
-        </form>
-      </div>
-    </section>
-
-    <!---------------INTRO END----------------------->
-
 
     <!-- -------------BENEFITS START----------------------->
     <section class="benefits">
@@ -444,113 +383,16 @@
     </div>
   </main>
   <!---------------VIDEO END-------------------------->
-  <!---------------FOOTER START----------------------->
-  <footer class="footer">
-    <div class="wraper">
-      <div class="footer_item">
-        <div class="footer_logo">
-          <img src="../img/svg/odigo-logo-footer.png" alt="" class="footer_logo_pic">
-        </div>
 
-        <nav class="footer_nav">
-          <ul class="footer_menu">
-            <h3 class="footer_menu_title">
-              Company
-            </h3>
-            <li class="footer_menu_item">
-              <a href="#!" class="footer_menu_link">
-                Company
-              </a>
-            </li>
-            <li class="footer_menu_item">
-              <a href="#!" class="footer_menu_link">
-                Company
-              </a>
-            </li>
-            <li class="footer_menu_item">
-              <a href="#!" class="footer_menu_link">
-                Company
-              </a>
-            </li>
-            <li class="footer_menu_item">
-              <a href="#!" class="footer_menu_link">
-                Company
-              </a>
-            </li>
-            <li class="footer_menu_item">
-              <a href="#!" class="footer_menu_link">
-                Company
-              </a>
-            </li>
-          </ul>
+  <div id="footer"></div>
 
-          <ul class="footer_menu">
-            <h3 class="footer_menu_title">
-              Company
-            </h3>
-            <li class="footer_menu_item">
-              <a href="#!" class="footer_menu_link">
-                Company
-              </a>
-            </li>
-            <li class="footer_menu_item">
-              <a href="#!" class="footer_menu_link">
-                Company
-              </a>
-            </li>
-            <li class="footer_menu_item">
-              <a href="#!" class="footer_menu_link">
-                Company
-              </a>
-            </li>
-            <li class="footer_menu_item">
-              <a href="#!" class="footer_menu_link">
-                Company
-              </a>
-            </li>
-            <li class="footer_menu_item">
-              <a href="#!" class="footer_menu_link">
-                Company
-              </a>
-            </li>
-          </ul>
-          <ul class="footer_menu">
-            <h3 class="footer_menu_title">
-              Company
-            </h3>
-            <li class="footer_menu_item">
-              <a href="#!" class="footer_menu_link">
-                Company
-              </a>
-            </li>
-            <li class="footer_menu_item">
-              <a href="#!" class="footer_menu_link">
-                Company
-              </a>
-            </li>
-            <li class="footer_menu_item">
-              <a href="#!" class="footer_menu_link">
-                Company
-              </a>
-            </li>
-            <li class="footer_menu_item">
-              <a href="#!" class="footer_menu_link">
-                Company
-              </a>
-            </li>
-            <li class="footer_menu_item">
-              <a href="#!" class="footer_menu_link">
-                Company
-              </a>
-            </li>
-          </ul>
-        </nav>
-      </div>
-  </footer>
-  <!---------------FOOTER END----------------------- -->
-
-  <script src="../js/main.js"></script>
-
+  <script>
+    fetch('../footer.html')
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById('footer').innerHTML = data;
+      });
+  </script>
 </body>
 
 </html>
